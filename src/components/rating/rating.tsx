@@ -12,6 +12,8 @@ export const Rating = ({ isEditable = false, rating, setRating, className, ...pr
         constructorRating(rating);
     }, [rating]);
 
+    const divProps = Object.assign({}, props);
+
     const constructorRating = (currentRating: number) => {
         const updatedArray = ratingArray.map((r: JSX.Element, i: number) => {
             return (
@@ -56,7 +58,7 @@ export const Rating = ({ isEditable = false, rating, setRating, className, ...pr
     };
 
     return (
-        <div {...props}>
+        <div {...divProps}>
             {ratingArray.map((r, i) => (<span key={i}>{r}</span>))}
         </div>
     );
