@@ -1,7 +1,9 @@
 
-import { Button, Tag } from '../components';
+import { useState } from 'react';
+import { Button, Rating, Tag } from '../components';
 
 export default function Home() {
+  const [rating, setRating] = useState<number>(4);
   return (
     <>
       <h2 className="heading">Header2</h2>
@@ -15,6 +17,7 @@ export default function Home() {
       <Tag size="l" color="red">hh.ru</Tag>
       <Tag color="ghost">hh.ru</Tag>
       <Tag size="s" href="#" color="green">hh.ru</Tag>
+      <Rating rating={rating} isEditable setRating={setRating}/>
     </>
   );
 }
