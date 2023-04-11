@@ -130,16 +130,15 @@ body{
 	font-size: 1.6rem;
 }
 
-.heading--large{
-	font-weight: 500;
-	font-size: 2.6rem;
-	line-height: 3.5rem;
-}
-
 .heading{
 	font-weight: 500;
 	font-size: 2.2rem;
 	line-height: 3rem;
+}
+
+.heading--large{
+	font-size: 2.6rem;
+	line-height: 3.5rem;
 }
 
 .heading--small{
@@ -149,24 +148,17 @@ body{
 }
 
 .text{
-	font-weight: 400;
-	font-size: 1.6rem;
 	line-height: 2.4rem;	
-	color: var(--black);
 }
 
 .text--large{
-	font-weight: 400;
 	font-size: 1.8rem;
 	line-height: 2.9rem;	
-	color: var(--black);
 }
 
 .text--small{
-	font-weight: 400;
 	font-size: 1.4rem;
 	line-height: 2.4rem;
-	color: var(--black);
 }
 
 
