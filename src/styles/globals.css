@@ -148,4 +148,25 @@ body{
 	line-height: 2.7rem;
 }
 
+.text{
+	font-weight: 400;
+	font-size: 1.6rem;
+	line-height: 2.4rem;	
+	color: var(--black);
+}
+
+.text--large{
+	font-weight: 400;
+	font-size: 1.8rem;
+	line-height: 2.9rem;	
+	color: var(--black);
+}
+
+.text--small{
+	font-weight: 400;
+	font-size: 1.4rem;
+	line-height: 2.4rem;
+	color: var(--black);
+}
+
 
