@@ -3,7 +3,7 @@ import { TagProps } from './tag.props';
 import cn from 'classnames';
 
 
-export const Tag = ({children, size="s", color='ghost', href,  className, ...props}: TagProps): JSX.Element =>{
+export const Tag = ({children, size="s", color='ghost', href,  className}: TagProps): JSX.Element =>{
     return(
         <div className={cn(styles.tag, className, {
             [styles.small]: size == 's',
@@ -13,7 +13,7 @@ export const Tag = ({children, size="s", color='ghost', href,  className, ...pro
             [styles.green]: color == 'green',
             [styles.red]: color == 'red',
             [styles.gray]: color == 'gray',
-        })} {...props}>
+        })}>
             {
                 href 
                 ? <a href={href}>{children}</a>

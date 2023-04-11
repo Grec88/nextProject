@@ -5,14 +5,12 @@ import cn from 'classnames';
 import { useState, useEffect, KeyboardEvent } from 'react';
 
 
-export const Rating = ({ isEditable = false, rating, setRating, className, ...props }: RatingProps): JSX.Element => {
+export const Rating = ({ isEditable = false, rating, setRating, className}: RatingProps): JSX.Element => {
     const [ratingArray, setRatingArray] = useState<JSX.Element[]>(new Array(5).fill(<></>));
 
     useEffect(() => {
         constructorRating(rating);
     }, [rating]);
-
-    const divProps = Object.assign({}, props);
 
     const constructorRating = (currentRating: number) => {
         const updatedArray = ratingArray.map((r: JSX.Element, i: number) => {
@@ -58,7 +56,7 @@ export const Rating = ({ isEditable = false, rating, setRating, className, ...pr
     };
 
     return (
-        <div {...divProps}>
+        <div>
             {ratingArray.map((r, i) => (<span key={i}>{r}</span>))}
         </div>
     );
