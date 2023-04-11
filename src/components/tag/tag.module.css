@@ -1,0 +1,46 @@
+/* stylelint-disable selector-class-pattern */
+.tag{
+	display: inline-block;
+	margin-right: 5px;
+	border-radius: 20px;
+}
+
+.small{
+	padding: 5px 10px;
+	font-weight: 500;
+	font-size: 1.2rem;
+	line-height: 1.2rem;
+}
+
+.large{
+	padding: 3px 10px;
+	font-weight: 600;
+	font-size: 1.4rem;
+	line-height: 1.4rem;
+}
+
+.ghost{
+	border: 1px solid var(--gray-light);
+}
+
+
+.red{
+	color:var(--white);
+	background-color: red;
+}
+
+.gray{
+	color:var(--white);
+	background-color: #B3C0D9;
+}
+
+.green{
+	color:var(--green);
+	background-color: var(--green-light);
+}
+
+.primary{
+	color:var(--primary);
+	background:none;
+	border: 1px solid var(--gray-light);
+}
