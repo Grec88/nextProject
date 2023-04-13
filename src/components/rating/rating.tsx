@@ -1,5 +1,5 @@
-import styles from './Rating.module.css';
-import { RatingProps } from './Rating.props';
+import styles from './rating.module.css';
+import { RatingProps } from './rating.props';
 import StarIcon from './Star.svg';
 
 import cn from 'classnames';
