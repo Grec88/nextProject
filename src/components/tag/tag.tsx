@@ -1,5 +1,5 @@
 import styles from './tag.module.css';
-import { TagProps } from './Tag.props';
+import { TagProps } from './tag.props';
 import cn from 'classnames';
 
 

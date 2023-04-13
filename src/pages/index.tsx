@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Button, Rating, Tag } from '../components';
-import { withLayout } from '../layout/Layout';
+import { withLayout } from '../layout/layout';
 
 const Home = () => {
   const [rating, setRating] = useState<number>(4);
@@ -18,7 +18,7 @@ const Home = () => {
       <Tag size="l" color="red">hh.ru</Tag>
       <Tag color="ghost">hh.ru</Tag>
       <Tag size="s" href="#" color="green">hh.ru</Tag>
-      <Rating rating={rating} isEditable setRating={setRating}/>
+      <Rating rating={rating} isEditable setRating={setRating} />
     </>
   );
 };
