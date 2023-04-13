@@ -1,3 +1,19 @@
 .footer{
-    
+	display: grid;
+	grid-template-columns: 1fr auto auto;
+	background-color: var(--primary);
+	padding: 25px 30px 25px 25px;
+	gap:40px;
+	font-weight: 500;
+	font-size: 1.6rem;
+	line-height: 2.2rem;
+	color: var(--white);
+}
+
+.link{
+	text-decoration: none;
+	font-weight: 500;
+	font-size: 1.6rem;
+	line-height: 2.2rem;
+	color: var(--white);
 }
