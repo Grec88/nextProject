@@ -3,19 +3,19 @@ import { Footer } from './Footer/Footer';
 import { Header } from './Header/Header';
 import { Sidebar } from './Sidebar/Sidebar';
 import styles from './Layout.module.css';
-import { LayoutProps } from './Layout.props';
+import { LayoutProps } from './layout.props';
 import cn from 'classnames';
 
 
 export const Layout = ({ children }: LayoutProps): JSX.Element => {
     return (
         <div className={styles.wrapper}>
-            <Header className={styles.header}/>
-            <Sidebar className={styles.sidebar}/>
+            <Header className={styles.header} />
+            <Sidebar className={styles.sidebar} />
             <div className={styles.body}>
                 {children}
             </div>
-            <Footer className={styles.footer}/>
+            <Footer className={styles.footer} />
         </div>
     );
 };
