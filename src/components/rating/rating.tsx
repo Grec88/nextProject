@@ -1,4 +1,4 @@
-import styles from './rating.module.css';
+import styles from './Rating.module.css';
 import StarIcon from './Star.svg';
 import { RatingProps } from './Rating.props';
 import cn from 'classnames';
