@@ -3,10 +3,10 @@ import { HeaderProps } from './Header.props';
 import cn from 'classnames';
 
 
-export const Header = ({...divAttributes}: HeaderProps): JSX.Element =>{
+export const Header = ({className}: HeaderProps): JSX.Element =>{
     return(
-        <div {...divAttributes}>
+        <header>
             Header
-        </div>
+        </header>
     );
 };
