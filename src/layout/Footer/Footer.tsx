@@ -3,9 +3,9 @@ import cn from 'classnames';
 import { FooterProps } from './Footer.props';
 
 
-export const Footer = ({className, ...props}:FooterProps): JSX.Element =>{
+export const Footer = ({className}:FooterProps): JSX.Element =>{
     return(
-        <div className={cn(className, styles.footer)} {...props}>
+        <footer className={cn(className, styles.footer)} >
             <div>
             OwlTop © 2020 - 2021 Все права защищены
             </div>
@@ -15,6 +15,6 @@ export const Footer = ({className, ...props}:FooterProps): JSX.Element =>{
             <a href="#" className={styles.link}>
             Политика конфиденциальности
             </a>
-        </div>
+        </footer>
     );
 };
