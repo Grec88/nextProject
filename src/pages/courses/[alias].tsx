@@ -41,7 +41,7 @@ export const getStaticProps: GetStaticProps<CourseProps> = async ({ params }: Ge
         firstCategory
     });
     const { data: page } = await axios.get<TopPageModel>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/byAlias/' + params.alias);
-    const { data: products } = await axios.post<ProductModel[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/product/find', {
+    const { data: products } = await axios.post<ProductModel[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/product/find',  {
         category: page.category,
         limit: 10
     });
