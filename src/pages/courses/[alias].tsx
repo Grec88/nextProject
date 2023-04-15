@@ -11,7 +11,7 @@ import { ProductModel } from '../../../Interfaces/product.interface';
 const firstCategory = 0;
 
 
-const Course = ({ menu, page, products }: CourseProps) => {
+const Course = ({ products }: CourseProps) => {
     return (
         <>
             {products && products.length}
@@ -31,7 +31,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }: GetStaticPropsContext<ParsedUrlQuery>) => {
+export const getStaticProps: GetStaticProps<CourseProps> = async ({ params }: GetStaticPropsContext<ParsedUrlQuery>) => {
     if (!params) {
         return {
             notFound: true
