@@ -14,7 +14,7 @@ const firstCategory = 0;
 const Course = ({ menu, page, products }: CourseProps) => {
     return (
         <>
-            {products.length}
+            {products && products.length}
         </>
     );
 };
