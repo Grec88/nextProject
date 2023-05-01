@@ -22,9 +22,6 @@ const Home = ({menu}: HomeProps) => {
       <Tag color="ghost">hh.ru</Tag>
       <Tag size="s" href="#" color="green">hh.ru</Tag>
       <Rating rating={rating} isEditable setRating={setRating} />
-      <ul>
-      {menu.map(m => (<li key={m._id.secondCategory}>{m._id.secondCategory}</li>))}
-      </ul>
     </>
   );
 };
