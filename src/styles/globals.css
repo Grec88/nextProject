@@ -86,11 +86,13 @@ video {
 	font: inherit;
 	font-size: 100%;
 	vertical-align: baseline;
+	text-decoration: none;
 }
 
 :root {
 	--black:#3B434E;
 	--gray-light:#EBEBEB;
+	--gray-dark: #787D85;
 	--white:#E5E5E5;
 	--primary:#7653FC;
 	--primary-hover:#11063B;
@@ -159,6 +161,10 @@ body{
 .text--small{
 	font-size: 1.4rem;
 	line-height: 2.4rem;
+}
+
+a{
+	color: var(--black);
 }
 
 
