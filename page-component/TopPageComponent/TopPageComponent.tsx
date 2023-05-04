@@ -14,7 +14,7 @@ export const TopPageComponent = ({ page, products, firstCategory }: TopPageCompo
             <div>
                 {products?.length && products.map(product => (<div key={product._id}>{product.title}</div>))}
             </div>
-            <div className={styles.hhTitle}>
+            <div className={styles['hh-title']}>
                 <h2>Вакансии - {page.category}</h2>
                 <Tag color='red' size='l'>hh.ru</Tag>
             </div>
