@@ -6,17 +6,22 @@ import { TopLevelCategory, TopPageModel } from '../../../Interfaces/page.interfa
 import { ParsedUrlQuery } from 'querystring';
 import { ProductModel } from '../../../Interfaces/product.interface';
 import { firstLevelMenu } from '../../../helpers/helpers';
+import { TopPageComponent } from '../../../page-component';
 
 
-const Course = ({ products }: CourseProps) => {
+const TopPage = ({ firstCategory, page, products }: TopPageProps) => {
+    if (!page || !products) {
+		return <></>;
+	}
     return (
-        <>
-            {products?.length}
-        </>
+        <TopPageComponent
+            firstCategory={firstCategory}
+            page={page}
+            products={products} />
     );
 };
 
-export default withLayout(Course);
+export default withLayout(TopPage);
 
 export const getStaticPaths: GetStaticPaths = async () => {
     let paths: string[] = [];
@@ -32,7 +37,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     };
 };
 
-export const getStaticProps: GetStaticProps<CourseProps> = async ({ params }: GetStaticPropsContext<ParsedUrlQuery>) => {
+export const getStaticProps: GetStaticProps<TopPageProps> = async ({ params }: GetStaticPropsContext<ParsedUrlQuery>) => {
     if (!params) {
         return {
             notFound: true
@@ -54,7 +59,7 @@ export const getStaticProps: GetStaticProps<CourseProps> = async ({ params }: Ge
             };
         }
 
-        const { data: page } = await axios.get<TopPageModel>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/byAlias/' + params.alias)
+        const { data: page } = await axios.get<TopPageModel>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/byAlias/' + params.alias);
 
         const { data: products } = await axios.post<ProductModel[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/product/find', {
             category: page.category,
@@ -75,7 +80,7 @@ export const getStaticProps: GetStaticProps<CourseProps> = async ({ params }: Ge
     }
 };
 
-interface CourseProps extends Record<string, unknown> {
+interface TopPageProps extends Record<string, unknown> {
     menu: MenuItem[];
     firstCategory: TopLevelCategory;
     page: TopPageModel;

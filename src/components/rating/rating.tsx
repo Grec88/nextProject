@@ -6,7 +6,7 @@ import cn from 'classnames';
 import { useState, useEffect, KeyboardEvent } from 'react';
 
 
-export const Rating = ({ isEditable = false, rating, setRating, className}: RatingProps): JSX.Element => {
+export const Rating = ({ isEditable = false, rating, setRating, className }: RatingProps): JSX.Element => {
     const [ratingArray, setRatingArray] = useState<JSX.Element[]>(new Array(5).fill(<></>));
 
     useEffect(() => {
@@ -18,10 +18,11 @@ export const Rating = ({ isEditable = false, rating, setRating, className}: Rati
             return (
                 <span
                     className={
-                        cn(styles.star, {
-                            [styles.filled]: i < currentRating,
-                            [styles.editable]: isEditable
-                        })}
+                        cn(
+                            styles.star,
+                            i < currentRating && styles.filled,
+                            isEditable && styles.editable
+                        )}
                     onMouseEnter={() => changeDisplay(i + 1)}
                     onMouseLeave={() => changeDisplay(rating)}
                     onClick={() => onClick(i + 1)}>
