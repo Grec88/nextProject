@@ -4,7 +4,6 @@ import { Header } from './Header/Header';
 import { Sidebar } from './Sidebar/Sidebar';
 import styles from './Layout.module.css';
 import { LayoutProps } from './layout.props';
-import cn from 'classnames';
 import { AppContextProvider, IAppContext } from '../../context/app.context';
 
 

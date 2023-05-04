@@ -10,6 +10,9 @@ import { TopPageComponent } from '../../../page-component';
 
 
 const TopPage = ({ firstCategory, page, products }: TopPageProps) => {
+    if (!page || !products) {
+		return <></>;
+	}
     return (
         <TopPageComponent
             firstCategory={firstCategory}
@@ -56,7 +59,7 @@ export const getStaticProps: GetStaticProps<TopPageProps> = async ({ params }: G
             };
         }
 
-        const { data: page } = await axios.get<TopPageModel>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/byAlias/' + params.alias)
+        const { data: page } = await axios.get<TopPageModel>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/byAlias/' + params.alias);
 
         const { data: products } = await axios.post<ProductModel[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/product/find', {
             category: page.category,
