@@ -41,5 +41,5 @@
 .primary{
 	color:var(--primary);
 	background:none;
-	border: 1px solid var(--gray-light);
+	border: 1px solid var(--primary);
 }
