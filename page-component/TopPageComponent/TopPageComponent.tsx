@@ -2,6 +2,8 @@ import { HhData, Tag } from "@/components";
 import { TopPageComponentProps } from "./TopPageComponent.props";
 import styles from './TopPage.module.css';
 import { TopLevelCategory } from "../../Interfaces/page.interface";
+import { priceRu } from "../../helpers/helpers";
+import { Advantages } from "@/components/Advantages/Advantages";
 
 export const TopPageComponent = ({ page, products, firstCategory }: TopPageComponentProps): JSX.Element => {
     return (
@@ -20,9 +22,20 @@ export const TopPageComponent = ({ page, products, firstCategory }: TopPageCompo
             </div>
             {firstCategory == TopLevelCategory.Courses && <HhData
                 count={page.hh.count}
-                juniorSalary={page.hh.juniorSalary}
-                middleSalary={page.hh.middleSalary}
-                seniorSalary={page.hh.seniorSalary} />}
+                juniorSalary={priceRu(page.hh.juniorSalary)}
+                middleSalary={priceRu(page.hh.middleSalary)}
+                seniorSalary={priceRu(page.hh.seniorSalary)} />}
+                <Advantages/>
+                <section className={styles.skills}>
+                <h2 className={styles['skills-title']}>
+                Получаемые навыки
+                </h2>
+                <Tag color="primary" size='s'>Работа в Photoshop</Tag>
+                <Tag color="primary" size='s' className={styles['skills-tag']}>Подготовка макетов</Tag>
+                <Tag color="primary" size='s' className={styles['skills-tag']}>Графический дизайн</Tag>
+                <Tag color="primary" size='s' className={styles['skills-tag']}>Web дизайн</Tag>
+                <Tag color="primary" size='s' className={styles['skills-tag']}>Дизайн сайтов</Tag>
+                </section>
         </div>
     );
 };

@@ -23,3 +23,19 @@
 	font-size: 2.2rem;
 	line-height: 3rem;
 }
+
+.skills{
+	margin-bottom:50px;
+}
+
+.skills-title{
+	margin-bottom: 20px;
+	font-weight: 500;
+	font-size: 2.2rem;
+	line-height: 3rem;
+}
+
+.skills-tag{
+	margin-left: 10px;
+}
+
