@@ -41,11 +41,9 @@ export const TopPageComponent = ({ page, products, firstCategory }: TopPageCompo
                 <h2 className={styles['skills-title']}>
                     Получаемые навыки
                 </h2>
-                <Tag color="primary" size='s'>Работа в Photoshop</Tag>
-                <Tag color="primary" size='s' className={styles['skills-tag']}>Подготовка макетов</Tag>
-                <Tag color="primary" size='s' className={styles['skills-tag']}>Графический дизайн</Tag>
-                <Tag color="primary" size='s' className={styles['skills-tag']}>Web дизайн</Tag>
-                <Tag color="primary" size='s' className={styles['skills-tag']}>Дизайн сайтов</Tag>
+                {page.tags.map((tag, i) => (
+                <Tag key={i} color="primary" size='s' className={styles['skills-tag']}>{tag}</Tag>
+                ))}
             </section>
         </div>
     );

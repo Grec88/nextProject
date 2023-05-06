@@ -1,4 +1,3 @@
-
 import { withLayout } from '../layout/layout';
 import { GetStaticProps } from 'next';
 import axios from 'axios';
@@ -7,6 +6,7 @@ import { MenuItem } from '../../Interfaces/menu.interface';
 const Search = ({menu}: HomeProps) => {
   return (
     <>
+	Search
     </>
   );
 };
