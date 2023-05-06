@@ -93,6 +93,7 @@ video {
 	--black:#3B434E;
 	--gray-light:#EBEBEB;
 	--gray-dark: #787D85;
+	--gray: #A4A4A4;
 	--white:#E5E5E5;
 	--primary:#7653FC;
 	--primary-hover:#11063B;
@@ -165,6 +166,24 @@ body{
 
 a{
 	color: var(--black);
+}
+
+.form-field{
+	padding: 7px 15px;
+	color: var(--black);
+	border: none;
+	outline-color: var(--primary);
+	background-color: var(--white);
+	box-shadow: 0 4px 4px rgb(0 0 0 / 5%);
+	border-radius: 5px;
+	font-weight: 400;
+	font-size: 1.6rem;
+	line-height: 2.2rem;
+	font-family: var(--font-family);
+}
+
+.form-field::placeholder{
+	color: var(--gray);
 }
 
 

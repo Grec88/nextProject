@@ -7,6 +7,7 @@ import { MenuItem } from '../../Interfaces/menu.interface';
 const Search = ({menu}: HomeProps) => {
   return (
     <>
+	Search
     </>
   );
 };
