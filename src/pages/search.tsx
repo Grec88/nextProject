@@ -1,4 +1,3 @@
-
 import { withLayout } from '../layout/layout';
 import { GetStaticProps } from 'next';
 import axios from 'axios';
