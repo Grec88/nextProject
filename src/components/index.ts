@@ -4,3 +4,4 @@ export * from './tag/tag';
 export * from './card/Card';
 export * from './HhData/HhData';
 export * from './Advantages/Advantages';
+export * from './Sort/Sort';
