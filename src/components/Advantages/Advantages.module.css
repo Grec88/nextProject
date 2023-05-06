@@ -43,3 +43,25 @@ section > .advantages-card-desc:last-child{
 	padding: 0;
 	margin: 0;
 }
+
+.advantage-seo h1 {
+	margin: 0;
+	font-size: 2.6rem;
+	font-weight: 500;
+	line-height: 3.5rem;
+}
+
+.advantage-seo h2 {
+	margin-top: 50px;
+	margin-bottom: 25px;
+	font-size: 2.2rem;
+	font-weight: 500;
+	line-height: 3rem;
+}
+
+.advantage-seo h3 {
+	margin: 0;
+	font-size: 2rem;
+	font-weight: 600;
+	line-height: 2.7rem;
+}
