@@ -1,0 +1,138 @@
+.product{
+	display: grid;
+	grid-template-columns: [start] 70px [logo-end] 30px [title-start] calc(50% - 100px) [middle] auto [price-start] auto [price-end] 40px [credit-start] auto [credit-end] 40px [rating-start] auto [end];
+	margin-bottom: 30px;
+	padding: 30px;
+}
+
+.product-logo{
+	grid-column: start/logo-end;
+	grid-row: 1 / span 2;
+}
+
+.product-title, .product-tag{
+	grid-column: title-start/middle;
+}
+
+.product-price, .product-price-title{
+	grid-column: price-start/price-end;
+}
+
+.product-credit, .product-credit-title{
+	grid-column: credit-start/credit-end;
+}
+
+.product-rating, .product-rating-title{
+	grid-column: rating-start/end;
+}
+
+.product-desc{
+	grid-column: start/end;
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+	margin-bottom: 20px;
+}
+
+.product-hr{
+	grid-column: start/end;
+	width:100%;
+	border: 1px solid var(--gray-light);
+	margin: 20px 0;
+}
+
+.product-feature{
+	grid-column:start/middle;
+}
+
+.product-adv{
+	grid-column: middle/end;
+	font-size: 1.6rem;
+	line-height: 2.2rem;
+}
+
+.product-actions{
+	grid-column: start/end;
+}
+
+.product-logo img{
+	border-radius: 5px;
+}
+
+.product-title{
+	font-weight: 600;
+	font-size: 2rem;
+	line-height: 2.7rem;
+	align-self: flex-end;
+}
+
+.product-price, .product-credit{
+	font-size: 2rem;
+	line-height: 2.7rem;
+	align-self: flex-end;
+}
+
+.product-credit-months{
+	font-size: 1.4rem;
+	line-height: 1.9rem;
+}
+
+.product-rating{
+	align-self: flex-end;
+}
+
+.product-price-title, 
+.product-credit-title, 
+.product-rating-title{
+	font-weight: 300;
+	font-size: 1.4rem;
+	line-height: 1.9rem;
+}
+
+.product-price-discount{
+	margin-left: 5px;
+}
+
+.product-tag-category{
+	margin-top: 5px;
+}
+
+.product-actions-button{
+	margin-left:20px;
+}
+
+.product-advantages-title, 
+.product-disadvantages-title{
+	font-weight: 700;
+	margin-bottom: 5px;
+} 
+
+.product-advantages{
+	border-left: 2px solid var(--green);
+	padding-left: 15px;
+	margin-bottom: 20px;
+}
+
+.product-disadvantages{
+	border-left: 2px solid var(--red);
+	padding-left: 15px;
+}
+
+.product-feature-characteristic{
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	padding-right: 60px;
+	font-size: 1.6rem;
+	line-height: 3.2rem;
+	align-items: baseline;
+	gap: 10px;
+}
+
+.product-feature-characteristic-name{
+	margin-right: 10px;
+	font-weight: 700;
+}
+
+.product-feature-characteristic-dots{
+	border: 1px dashed var(--gray-light);
+	margin-bottom: 5px;
+}
