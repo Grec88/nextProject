@@ -6,9 +6,15 @@ import { Tag } from '../tag/tag';
 import styles from './Product.module.css';
 import { ProductProps } from './Product.props';
 import Image from 'next/image';
+import cn from 'classnames';
+import { useState } from 'react';
+import { Review } from '../Review/Review';
 
 export const Product = ({ product }: ProductProps): JSX.Element => {
+    const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
+
     return (
+        <>
         <Card className={styles['product']}>
             <div className={styles['product-logo']}>
                 <Image 
@@ -83,11 +89,26 @@ export const Product = ({ product }: ProductProps): JSX.Element => {
                     </div>
                 </div>}
             </div>
-            <hr className={styles['product-hr']} />
+            <hr className={cn(styles['product-hr'], styles['product-hr-last'])} />
             <div className={styles['product-actions']}>
                 <Button appearance='primary'>Узнать подробнее</Button>
-                <Button className={styles['product-actions-button']} appearance='ghost' arrow='right'>Читать отзывы</Button>
+                <Button
+                 className={styles['product-actions-button']} 
+                 appearance='ghost' 
+                 arrow={isReviewOpened ? 'down' : 'right'}
+                 onClick={() => setIsReviewOpened(!isReviewOpened)
+                 }
+                 >Читать отзывы</Button>
             </div>
         </Card>
+        <Card color='blue' className={cn(styles['product-review'],
+        isReviewOpened && [styles['product-review-opened']],
+        !isReviewOpened && [styles['product-review-closed']]
+        )}>
+                {product.reviews.map(review => (
+                    <Review key={review._id} review={review}/>
+                ))}
+        </Card>
+        </>
     );
 };

@@ -1,7 +1,7 @@
 .product{
 	display: grid;
 	grid-template-columns: [start] 70px [logo-end] 30px [title-start] calc(50% - 100px) [middle] auto [price-start] auto [price-end] 40px [credit-start] auto [credit-end] 40px [rating-start] auto [end];
-	margin-bottom: 30px;
+	margin-top: 30px;
 	padding: 30px;
 }
 
@@ -135,4 +135,149 @@
 .product-feature-characteristic-dots{
 	border: 1px dashed var(--gray-light);
 	margin-bottom: 5px;
+}
+
+.product-review-closed{
+	overflow: hidden;
+	max-height: 0;
+	padding: 0;
+}
+
+.product-review-opened{
+	overflow: hidden;
+	max-height: auto;
+	padding: 30px;
+}
+
+@media screen and (width <=1320px) {
+	.product{
+		grid-template-columns: 70px  30px  auto 40px auto 40px 1fr;
+		grid-template-areas: 
+			"logo . title title title title title"
+			"logo . tag tag tag tag tag"
+			"price price price . credit . rating"
+			"priceTitle priceTitle priceTitle . creditTitle . ratingTitle"
+			"hr hr hr hr hr hr hr"
+			"description description description description description description description"
+			"feature feature feature feature feature feature feature"
+			"advBlock advBlock advBlock advBlock advBlock advBlock advBlock"
+			"hr2 hr2 hr2 hr2 hr2 hr2 hr2"
+			"actions actions actions actions actions actions actions";
+	}
+
+	.product-logo{
+		grid-area: logo;
+		margin-bottom: 20px;
+	}
+
+	.product-title{
+		grid-area: title;
+	}
+
+	.product-tag{
+		grid-area: tag;
+		margin-bottom: 20px;
+	}
+
+	.product-price{
+		grid-area: price;
+	}
+
+	.product-credit{
+		grid-area: credit;
+	}
+
+	.product-rating{
+		grid-area: rating;
+	}
+
+	.product-price-title{
+		grid-area: priceTitle;
+	}
+
+	.product-credit-title{
+		grid-area: creditTitle;
+	}
+
+	.product-rating-title{
+		grid-area: ratingTitle;
+	}
+
+	.product-hr{
+		grid-area: hr;
+	}
+
+	.product-desc{
+		grid-area: description;
+	}
+
+	.product-adv{
+		grid-area: advBlock;
+	}
+
+	.product-feature{
+		grid-area: feature;
+		margin-bottom: 20px;
+	}
+
+	.product-hr-last{
+		grid-area: hr2;
+	}
+
+	.product-actions{
+		grid-area: actions;
+	}
+}
+
+
+@media screen and (width <=640px) {
+	.product{
+		grid-template-columns: 70px  30px  1fr;
+		grid-template-areas: 
+			"logo . title "
+			"logo . tag "
+			"priceTitle priceTitle price"
+			"creditTitle creditTitle credit"
+			"ratingTitle ratingTitle rating"
+			"hr hr hr"
+			"description description description"
+			"feature feature feature"
+			"advBlock advBlock advBlock"
+			"hr2 hr2 hr2"
+			"actions actions actions";
+	}
+
+	.product-price{
+		margin-bottom: 10px;
+	}
+
+	.product-credit{
+		margin-bottom: 20px;
+	}
+
+	.product-rating{
+		margin-bottom: 20px;
+	}
+}
+
+@media screen and (width <=640px) {
+	.product{
+		grid-template-columns:1fr;
+		grid-template-areas: 
+			"logo"
+			"title"
+			"tag"
+			"priceTitle"
+			"price"
+			"creditTitle"
+			"credit"
+			"ratingTitle"
+			"rating"
+			"hr"
+			"description"
+			"feature"
+			"advBlock"
+			"hr2"
+			"actions";
+	}
 }
