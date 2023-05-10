@@ -7,3 +7,4 @@ export * from './Advantages/Advantages';
 export * from './Sort/Sort';
 export * from './Search/Search';
 export * from './Product/Product';
+export * from './Review/Review';

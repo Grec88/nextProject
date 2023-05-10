@@ -7,6 +7,7 @@
 	font-weight: 500;
 	font-size: 2.6rem;
 	line-height: 3.5rem;
+	margin-bottom: 30px;
 }
 
 .wrapper {
@@ -39,4 +40,11 @@
 	margin-right: 10px;
 }
 
+
+@media screen and (width <= 640px) {
+	.title{
+		display: grid;
+		grid-template-columns: auto 1fr;
+	}
+}
 
