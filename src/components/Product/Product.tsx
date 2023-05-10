@@ -12,6 +12,7 @@ import { Review } from '../Review/Review';
 
 export const Product = ({ product }: ProductProps): JSX.Element => {
     const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
+
     return (
         <>
         <Card className={styles['product']}>
@@ -95,15 +96,15 @@ export const Product = ({ product }: ProductProps): JSX.Element => {
                  className={styles['product-actions-button']} 
                  appearance='ghost' 
                  arrow={isReviewOpened ? 'down' : 'right'}
-                 onClick={() => setIsReviewOpened(!isReviewOpened)}
+                 onClick={() => setIsReviewOpened(!isReviewOpened)
+                 }
                  >Читать отзывы</Button>
             </div>
         </Card>
-        <Card color='blue' className={cn(
-            styles['product-review'], 
-            isReviewOpened && styles['product-review-opened'],
-            isReviewOpened && styles['product-review-closed']
-            )}>
+        <Card color='blue' className={cn(styles['product-review'],
+        isReviewOpened && [styles['product-review-opened']],
+        !isReviewOpened && [styles['product-review-closed']]
+        )}>
                 {product.reviews.map(review => (
                     <Review key={review._id} review={review}/>
                 ))}
