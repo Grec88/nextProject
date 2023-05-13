@@ -9,3 +9,19 @@
 .editable svg{
 	cursor:pointer;
 }
+
+.rating-wrapper{
+	position: relative;
+
+}
+
+.rating-error{
+	position: absolute;
+	top: 15px;
+	left:0;
+	color: var(--red);
+}
+
+.rating-form-error svg{
+	stroke: var(--red);
+}

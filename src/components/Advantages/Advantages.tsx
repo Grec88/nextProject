@@ -22,7 +22,7 @@ export const Advantages = ({ advantages, seoText }: AdvantagesProps): JSX.Elemen
                     </p>
                 </div>
             ))}
-             <p className={cn(styles['advantages-card-desc'], styles['advantage-seo'])} dangerouslySetInnerHTML={{ __html: seoText }}/>
+             {seoText.length > 0 && seoText && <div className={cn(styles['advantages-card-desc'], styles['advantage-seo'])} dangerouslySetInnerHTML={{ __html: seoText }}/>}
         </section>
     );
 };
