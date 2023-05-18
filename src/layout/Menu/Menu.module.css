@@ -36,15 +36,7 @@
 }
 
 .second-level-block{
-	display: none;
-}
-
-.second-level-block-opened{
-	display: block;
-}
-
-.second-level-block-opened:last-child{
-	margin-bottom: 20px;
+	overflow: hidden;
 }
 
 .third-level{

@@ -7,15 +7,25 @@ import styles from './Product.module.css';
 import { ProductProps } from './Product.props';
 import Image from 'next/image';
 import cn from 'classnames';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Review } from '../Review/Review';
 import { ReviewForm } from '../ReviewForm/ReviewForm';
+import Link from 'next/link';
 
-export const Product = ({ product }: ProductProps): JSX.Element => {
+export const Product = ({ product, className }: ProductProps): JSX.Element => {
     const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
+    const reviewRef = useRef<HTMLDivElement>(null);
+
+    const scrollToReview = () => {
+        setIsReviewOpened(true);
+        reviewRef.current?.scrollIntoView({
+            behavior: 'smooth',
+            block:'start'
+        });
+    };
 
     return (
-        <>
+        <div className={className}>
             <Card className={styles['product']}>
                 <div className={styles['product-logo']}>
                     <Image
@@ -52,7 +62,7 @@ export const Product = ({ product }: ProductProps): JSX.Element => {
                     кредит
                 </div>
                 <div className={styles['product-rating-title']}>
-                    {product.reviewCount} {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}
+                <Link className={styles['product-rating-title-link']} href="#ref" onClick={scrollToReview}>{product.reviewCount} {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}</Link>
                 </div>
                 <hr className={styles['product-hr']} />
                 <p className={styles['product-desc']}>
@@ -102,7 +112,7 @@ export const Product = ({ product }: ProductProps): JSX.Element => {
                     >Читать отзывы</Button>
                 </div>
             </Card>
-            <Card color='blue' className={cn(styles['product-review'],
+            <Card color='blue' ref={reviewRef} className={cn(styles['product-review'],
                 isReviewOpened && [styles['product-review-opened']],
                 !isReviewOpened && [styles['product-review-closed']]
             )}>
@@ -114,6 +124,6 @@ export const Product = ({ product }: ProductProps): JSX.Element => {
                 ))}
             </Card>
             <ReviewForm productId={product._id}/>
-        </>
+        </div>
     );
 };
