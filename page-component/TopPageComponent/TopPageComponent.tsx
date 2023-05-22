@@ -6,7 +6,7 @@ import { priceRu } from "../../helpers/helpers";
 import { Advantages } from "@/components/Advantages/Advantages";
 import { SortEnum } from "@/components/Sort/Sort.props";
 import { sortReducer } from "./sort.reducer";
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 
 export const TopPageComponent = ({ page, products, firstCategory }: TopPageComponentProps): JSX.Element => {
     const [{ products: sortProducts, sort }, dispathSort] = useReducer(sortReducer, { products, sort: SortEnum.Rating })
@@ -15,6 +15,9 @@ export const TopPageComponent = ({ page, products, firstCategory }: TopPageCompo
         dispathSort({ type: sort });
     };
 
+    useEffect(() => {
+        dispathSort({type: 'reset', initialState: products});
+    }, [products]);
 
     return (
         <div className={styles.wrapper}>
