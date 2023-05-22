@@ -7,14 +7,20 @@ import styles from './Product.module.css';
 import { ProductProps } from './Product.props';
 import Image from 'next/image';
 import cn from 'classnames';
-import { useRef, useState } from 'react';
+import { ForwardedRef, forwardRef, useRef, useState } from 'react';
 import { Review } from '../Review/Review';
 import { ReviewForm } from '../ReviewForm/ReviewForm';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
-export const Product = ({ product, className }: ProductProps): JSX.Element => {
+export const Product = motion(forwardRef(({ product, className }: ProductProps, ref:ForwardedRef<HTMLDivElement>): JSX.Element => {
     const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
     const reviewRef = useRef<HTMLDivElement>(null);
+
+    const variants = {
+        visible:{ opacity: 1, height: 'auto'},
+        hidden: { opacity: 0, height: 0 }
+    }
 
     const scrollToReview = () => {
         setIsReviewOpened(true);
@@ -25,7 +31,7 @@ export const Product = ({ product, className }: ProductProps): JSX.Element => {
     };
 
     return (
-        <div className={className}>
+        <div className={className} ref={ref}>
             <Card className={styles['product']}>
                 <div className={styles['product-logo']}>
                     <Image
@@ -112,10 +118,12 @@ export const Product = ({ product, className }: ProductProps): JSX.Element => {
                     >Читать отзывы</Button>
                 </div>
             </Card>
-            <Card color='blue' ref={reviewRef} className={cn(styles['product-review'],
-                isReviewOpened && [styles['product-review-opened']],
-                !isReviewOpened && [styles['product-review-closed']]
-            )}>
+            <motion.div
+            animate={isReviewOpened ? "visible" : "hidden"}
+            variants={variants}
+            initial={"hidden"}
+            >
+            <Card color='blue' ref={reviewRef} className={styles['product-review']}>
                 {product.reviews.map(review => (
                     <div key={review._id}>
                         <Review  review={review} />
@@ -124,6 +132,7 @@ export const Product = ({ product, className }: ProductProps): JSX.Element => {
                 ))}
             </Card>
             <ReviewForm productId={product._id}/>
+            </motion.div>
         </div>
     );
-};
+}));

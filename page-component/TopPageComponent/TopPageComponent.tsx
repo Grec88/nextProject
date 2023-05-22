@@ -7,16 +7,18 @@ import { Advantages } from "@/components/Advantages/Advantages";
 import { SortEnum } from "@/components/Sort/Sort.props";
 import { sortReducer } from "./sort.reducer";
 import { useEffect, useReducer } from "react";
+import { useScrollY } from "../../hooks/useScrollY";
 
 export const TopPageComponent = ({ page, products, firstCategory }: TopPageComponentProps): JSX.Element => {
     const [{ products: sortProducts, sort }, dispathSort] = useReducer(sortReducer, { products, sort: SortEnum.Rating })
+    const y = useScrollY();
 
     const setSort = (sort: SortEnum) => {
         dispathSort({ type: sort });
     };
 
     useEffect(() => {
-        dispathSort({type: 'reset', initialState: products});
+        dispathSort({ type: 'reset', initialState: products });
     }, [products]);
 
     return (
@@ -27,7 +29,7 @@ export const TopPageComponent = ({ page, products, firstCategory }: TopPageCompo
                 <Sort sort={sort} setSort={setSort} />
             </div>
             <div>
-                {!!sortProducts?.length && sortProducts.map(product => (<Product key={product._id} product={product}/>))}
+                {!!sortProducts?.length && sortProducts.map(product => (<Product layout key={product._id} product={product} />))}
             </div>
             <div className={styles['hh-title']}>
                 <h2>Вакансии - {page.category}</h2>
@@ -38,14 +40,14 @@ export const TopPageComponent = ({ page, products, firstCategory }: TopPageCompo
                 juniorSalary={priceRu(page.hh.juniorSalary)}
                 middleSalary={priceRu(page.hh.middleSalary)}
                 seniorSalary={priceRu(page.hh.seniorSalary)} />}
-            {page.advantages && page.advantages.length > 0 && 
+            {page.advantages && page.advantages.length > 0 &&
                 <Advantages advantages={page.advantages} seoText={page.seoText} />}
             <section className={styles.skills}>
                 <h2 className={styles['skills-title']}>
                     Получаемые навыки
                 </h2>
                 {page.tags.map((tag, i) => (
-                <Tag key={i} color="primary" size='s' className={styles['skills-tag']}>{tag}</Tag>
+                    <Tag key={i} color="primary" size='s' className={styles['skills-tag']}>{tag}</Tag>
                 ))}
             </section>
         </div>
