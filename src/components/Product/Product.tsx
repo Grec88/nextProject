@@ -28,6 +28,7 @@ export const Product = motion(forwardRef(({ product, className }: ProductProps, 
             behavior: 'smooth',
             block:'start'
         });
+        reviewRef.current?.focus();
     };
 
     return (
@@ -68,7 +69,7 @@ export const Product = motion(forwardRef(({ product, className }: ProductProps, 
                     кредит
                 </div>
                 <div className={styles['product-rating-title']}>
-                <Link className={styles['product-rating-title-link']} href="#ref" onClick={scrollToReview}>{product.reviewCount} {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}</Link>
+                <a className={styles['product-rating-title-link']} href="#ref" onClick={scrollToReview}>{product.reviewCount} {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}</a>
                 </div>
                 <hr className={styles['product-hr']} />
                 <p className={styles['product-desc']}>
@@ -123,7 +124,7 @@ export const Product = motion(forwardRef(({ product, className }: ProductProps, 
             variants={variants}
             initial={"hidden"}
             >
-            <Card color='blue' ref={reviewRef} className={styles['product-review']}>
+            <Card color='blue' ref={reviewRef} tabIndex={isReviewOpened ? 0 : -1} className={styles['product-review']}>
                 {product.reviews.map(review => (
                     <div key={review._id}>
                         <Review  review={review} />
@@ -131,7 +132,7 @@ export const Product = motion(forwardRef(({ product, className }: ProductProps, 
                     </div>
                 ))}
             </Card>
-            <ReviewForm productId={product._id}/>
+            <ReviewForm productId={product._id} isOpened={isReviewOpened}/>
             </motion.div>
         </div>
     );
