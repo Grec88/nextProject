@@ -6,11 +6,11 @@
 		". sidebar body ." 1fr
 		"footer footer footer footer" auto
 		/ auto 230px minmax(320px, 1200px) auto;
+	gap: 10px;
 }
 
 .header{
 	grid-area: header;
-	display:none;
 }
 
 .sidebar{
@@ -31,11 +31,7 @@
 	.sidebar{
 		display: none;
 	}
-
-	.header{
-		display:block;
-	}
-
+	
 	.wrapper{
 		grid-template-columns: minmax(320px, 1fr);
 		grid-template-areas: 
