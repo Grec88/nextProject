@@ -20,11 +20,27 @@
 
 .body{
 	grid-area: body;
+	outline: none;
 }
 
 
 .footer{
 	grid-area: footer;
+}
+
+.skip-link{
+	display: block;
+	position:fixed;
+	left: 100px;
+	top:0;
+	overflow: hidden;
+	height:0;
+	background-color: var(--primary);
+	color: var(--white);
+}
+
+.skip-link-displayed{
+	height: auto;
 }
 
 @media (width <= 760px){

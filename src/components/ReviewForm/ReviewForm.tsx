@@ -10,7 +10,7 @@ import axios from 'axios';
 import { API } from '../../../helpers/api';
 import { useState } from 'react';
 
-export const ReviewForm = ({ productId, className }: ReviewFormProps): JSX.Element => {
+export const ReviewForm = ({ productId, isOpened, className }: ReviewFormProps): JSX.Element => {
     const { register, control, handleSubmit, formState: { errors }, reset } = useForm<IReviewForm>();
     const [isSuccess, setIsSuccess] = useState<boolean>(false);
     const [error, setIsError] = useState<string>();
@@ -41,13 +41,13 @@ export const ReviewForm = ({ productId, className }: ReviewFormProps): JSX.Eleme
                 <div className={styles['review-form-field-wrapper']}>
                     <input
                         {...register('name', { required: { value: true, message: 'Заполните имя' } })}
-                        className={cn('form-field', errors.name && styles['review-form-error'])} placeholder={"Имя"} />
+                        className={cn('form-field', errors.name && styles['review-form-error'])} placeholder={"Имя"} tabIndex={isOpened ? 0 : -1} />
                     {errors.name && <span className={styles['review-form-error-message']}>{errors.name.message}</span>}
                 </div>
                 <div className={cn(styles['review-form-field-wrapper'], styles['review-form-title'])}>
                     <input
                         {...register('title', { required: { value: true, message: 'Заполните название' } })} placeholder={"Заголовок отзыва"}
-                        className={cn('form-field', errors.title && styles['review-form-error'])} />
+                        className={cn('form-field', errors.title && styles['review-form-error'])} tabIndex={isOpened ? 0 : -1} />
                     {errors.name && <span className={styles['review-form-error-message']}>{errors.name.message}</span>}
                 </div>
                 <div className={cn(styles['review-form-rating'])}>
@@ -60,6 +60,7 @@ export const ReviewForm = ({ productId, className }: ReviewFormProps): JSX.Eleme
                         rules={{ required: { value: true, message: 'Укажите рейтинг' } }}
                         render={({ field }) => (
                             <Rating
+                                tabIndex={isOpened ? 0 : -1}
                                 rating={field.value}
                                 ref={field.ref}
                                 isEditable
@@ -72,11 +73,11 @@ export const ReviewForm = ({ productId, className }: ReviewFormProps): JSX.Eleme
                     <textarea
                         {...register('description', { required: { value: true, message: 'Заполните текст отзыва' } })}
                         className={cn('form-field', errors.description && styles['review-form-error'])}
-                        placeholder={"Заголовок отзыва"} />
+                        placeholder={"Заголовок отзыва"} tabIndex={isOpened ? 0 : -1} />
                     {errors.name && <span className={styles['review-form-error-message-desc']}>{errors.name.message}</span>}
                 </div>
                 <div className={styles['review-form-submit']}>
-                    <Button appearance='primary'>Отправить</Button>
+                    <Button tabIndex={isOpened ? 0 : -1} appearance='primary'>Отправить</Button>
                     <span className={styles['review-form-submit-info']}>
                         * Перед публикацией отзыв пройдет предварительную модерацию и проверку
                     </span>
@@ -85,17 +86,17 @@ export const ReviewForm = ({ productId, className }: ReviewFormProps): JSX.Eleme
             {isSuccess && <div className={styles['review-form-success']}>
                 <div className={styles['review-form-success-title']}>
                     <div>
-                    Спасибо, ваш отзыв будет опубликован после проверки.
+                        Спасибо, ваш отзыв будет опубликован после проверки.
                     </div>
-                    <CrossIcon className={styles['review-form-close-icon']} onClick={() => setIsSuccess(false)}/>
+                    <CrossIcon className={styles['review-form-close-icon']} onClick={() => setIsSuccess(false)} />
                 </div>
             </div>}
-           {error && <div className={styles['review-form-post-error']}>
+            {error && <div className={styles['review-form-post-error']}>
                 <div className={styles['review-form-post-error-title']}>
                     <div>
                         Что-то пошло не так, поробуйте обновить страницу .....
                     </div>
-                    <CrossIcon className={styles['review-form-close-icon']} onClick={() => setIsError(undefined)}/>
+                    <CrossIcon className={styles['review-form-close-icon']} onClick={() => setIsError(undefined)} />
                 </div>
             </div>}
         </form>

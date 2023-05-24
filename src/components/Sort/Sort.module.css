@@ -20,13 +20,22 @@
 	cursor: pointer;
 }
 
-.sort span{
+.sort button{
 	display: grid;
 	grid-template-columns: 20px 1fr;
 	align-items: center;
-	gap:10px
+	gap:10px;
+	border: none;
+	background: none;
+	font-weight: 700;
+	font-size: 1.6rem;
+	line-height: 2.2rem;
 }
 
-.sort span:not(.active){
+.sort button:not(.active){
 	grid-template-columns: 1fr;
+}
+
+.sort-name{
+	display: none;
 }
