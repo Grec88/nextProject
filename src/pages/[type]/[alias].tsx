@@ -8,6 +8,7 @@ import { ProductModel } from '../../../Interfaces/product.interface';
 import { firstLevelMenu } from '../../../helpers/helpers';
 import { TopPageComponent } from '../../../page-component';
 import { API } from '../../../helpers/api';
+import Head from 'next/head';
 
 
 const TopPage = ({ firstCategory, page, products }: TopPageProps) => {
@@ -15,10 +16,19 @@ const TopPage = ({ firstCategory, page, products }: TopPageProps) => {
 		return <></>;
 	}
     return (
+        <>
+        <Head>
+        <title>{page.metaTitle}</title>
+        <meta name="description" content={page.metaDescription}/>
+        <meta content={page.metaTitle} property="og:title"/>
+        <meta property="og:description" content={page.metaDescription}/>
+        <meta property="og:type" content='article'/>
+        </Head>
         <TopPageComponent
             firstCategory={firstCategory}
             page={page}
             products={products} />
+            </>
     );
 };
 
