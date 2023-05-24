@@ -4,9 +4,10 @@ import type { AppProps } from 'next/app';
 import React from 'react';
 import ym from 'react-yandex-metrika';
 import { YMInitializer } from 'react-yandex-metrika';
+import { Router } from 'next/router';
 
 export default function App({ Component, pageProps, router }: AppProps) {
-  router.events.on('routeChangeComplete', (url: string) => {
+  Router.events.on('routeChangeComplete', (url: string) => {
     if (typeof window !== 'undefined') {
       ym('hit', url);
     }
